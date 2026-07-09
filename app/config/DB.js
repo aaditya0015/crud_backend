@@ -1,21 +1,23 @@
+require("dotenv").config();
+
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(
-    "productdb",
-    "postgres",
-    "admin@123",       
-    {
-        host: "localhost",
-        dialect: "postgres"
+const sequelize = new Sequelize(process.env.DB_URL, {
+    dialect: "postgres",
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
     }
-);
+});
 
 sequelize.authenticate()
 .then(() => {
     console.log("Database Connected Successfully");
 })
 .catch((err) => {
-    console.log("Connection Error :", err);
+    console.error("Connection Error:", err);
 });
 
 module.exports = sequelize;

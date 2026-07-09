@@ -173,7 +173,7 @@
 
 // // sequelize ORM website to understand how to connect with database and perform CRUD operations using sequelize and postgresql database
 
-
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 

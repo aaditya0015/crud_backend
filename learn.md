@@ -226,3 +226,6 @@ db.authenticate()
 - then on table 
 - in table right click on product
 - edit/view option in it click on **view all rows**
+
+## .env
+- we create .env file to store the database connection string
